@@ -5,21 +5,22 @@ class LoginPage extends Page {
     get inputUsername() { return $('#normal_login_email'); }
     get inputPassword() { return $('#normal_login_password'); }
     get btnSubmit() { return $('button[type="submit"]'); }
-    get errorToast() {return $('.ant-notification-notice-message')}
+    get errorToast() {return $('.ant-notification-notice-message'); }
+    get errorLoginRequired() {return $('//div[contains(@class, "ant-form-item-with-help")][.//input[@id="normal_login_email"]]//div[@role="alert"]');}
 
     open () {
         return super.open('/user/login');
     }
 
-    async setLogin(email){
-        await this.inputUsername.setValue(email);
+    setLogin(email){
+        this.inputUsername.setValue(email);
     }
-    async setPassword(password){
-        await this.inputPassword.setValue(password);
+    setPassword(password){
+        this.inputPassword.setValue(password);
     }
 
-    async clickSubmitButton(){
-        await this.btnSubmit.click();
+     clickSubmitButton(){
+         this.btnSubmit.click();
     }
 
     submitButtonIsDisabled(){
@@ -28,6 +29,15 @@ class LoginPage extends Page {
 
     errorToastAppears(){
         expect(this.errorToast).toBeDisplayed();
+    }
+
+    emptyLoginInput(){
+        this.clearInput(this.inputUsername);
+    }
+
+    loginRequiredError(){
+        expect(this.errorLoginRequired).toBeDisplayed();
+        expect(this.errorLoginRequired.getText()).toEqual('Required')
     }
 
   }

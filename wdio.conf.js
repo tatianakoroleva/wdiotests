@@ -1,3 +1,6 @@
+import LoginPage from './test/pageobjects/login.page';
+
+
 exports.config = {
     //
     // ====================
@@ -190,8 +193,15 @@ exports.config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {Object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: function (capabilities, specs) {
+        browser.addCommand('login', function (username, password) {
+            // `this` refers to the `browser` scope
+            LoginPage.open();
+            LoginPage.setLogin(username);
+            LoginPage.setPassword(password);
+            LoginPage.clickSubmitButton();
+        })
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name

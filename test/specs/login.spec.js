@@ -5,10 +5,17 @@ describe('Auth', () => {
 
     // beforeEach(() => {
     //     browser.refresh();
-    // })
+    // });
+
+    beforeEach(() => {
+        LoginPage.open();
+    });
+
+    // afterEach(() => {
+    //     browser.execute('window.localStorage.clear()')
+    // });
 
     it('user logs in with valid data',  () => {
-        LoginPage.open();
         LoginPage.setLogin('nenobi3527@iludir.com');
         LoginPage.setPassword('t1875456');
         LoginPage.clickSubmitButton();
@@ -16,17 +23,21 @@ describe('Auth', () => {
     });
 
     it('submit button is disabled if login and password are empty', () => {
-        LoginPage.open();
         LoginPage.submitButtonIsDisabled();
     });
 
     it('error toast pops up when invalid data provided', () => {
-        LoginPage.open();
         LoginPage.setLogin('example@example.com');
         LoginPage.setPassword('123456');
         LoginPage.clickSubmitButton();
         LoginPage.errorToastAppears();
-    })
+    });
+
+    it('login input is required', () => {
+        LoginPage.setLogin('example');
+        LoginPage.emptyLoginInput();
+        LoginPage.loginRequiredError();
+    });
 });
 
 
