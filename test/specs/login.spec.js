@@ -16,8 +16,8 @@ describe('Auth', () => {
     // });
 
     it('user logs in with valid data',  () => {
-        LoginPage.setLogin('nenobi3527@iludir.com');
-        LoginPage.setPassword('t1875456');
+        LoginPage.setLogin(process.env.LOGIN);
+        LoginPage.setPassword(process.env.PASSWORD);
         LoginPage.clickSubmitButton();
         ProfilePage.isOpen();
     });
