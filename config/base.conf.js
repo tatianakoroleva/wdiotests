@@ -15,7 +15,11 @@ module.exports = {
     baseUrl: 'https://stage.localcoding.us',
 
     framework: 'mocha',
-    reporters: ['spec'],
+
+    reporters: ['spec', ['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: true
+    }]],
     mochaOpts: {
         require: ['@babel/register'],
         ui: 'bdd',
