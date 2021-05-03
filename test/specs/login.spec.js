@@ -17,7 +17,7 @@ describe('Auth', () => {
 
     it('user logs in with valid data',  () => {
         LoginPage.setLogin('nenobi3527@iludir.com');
-        LoginPage.setPassword('t18754561');
+        LoginPage.setPassword('t1875456');
         LoginPage.clickSubmitButton();
         ProfilePage.isOpen();
     });
