@@ -9,11 +9,14 @@ exports.config = {
     capabilities: [
         {
             maxInstances: 1,
-            browserName: 'firefox'
+            browserName: 'firefox',
+            'moz:firefoxOptions':{
+                args: ['-headless']
+            },
         }
     ],
     services: ['geckodriver'],
 
     ...base,
     ...hooks
-}
+    }

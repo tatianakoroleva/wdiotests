@@ -3,7 +3,7 @@ import CoursesPage from '../pageobjects/portal/courses.portal.page';
 
 describe ('Navigation', () => {
     before(() => {
-        browser.login('nenobi3527@iludir.com', 't1875456');
+        browser.login(process.env.LOGIN, process.env.PASSWORD);
     });
 
     beforeEach(() => {
