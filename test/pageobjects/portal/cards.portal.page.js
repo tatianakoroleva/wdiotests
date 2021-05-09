@@ -1,7 +1,7 @@
 import PortalPage from "./portal.page";
 
 class CardsPage extends PortalPage {
-    get sectionHeader(){ return $('*[@id="root"]/section/h1');}
+    get sectionHeader(){ return $('//h1'); }
 
     open(){
         return super.open('/flash');
@@ -9,7 +9,8 @@ class CardsPage extends PortalPage {
 
     isCardsOpen(){
         expect(browser).toHaveUrlContaining('/flash');
-        expect(this.sectionHeader).toHaveText('Flash cards in beta mode so far');
+        const text = this.sectionHeader.getText();
+        expect(text).toEqual('Flash  in beta mode so far');
     }
 }
 

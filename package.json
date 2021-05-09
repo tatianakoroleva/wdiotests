@@ -16,8 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@wdio/cli": "^7.5.1",
-    "@wdio/sync": "^7.5.2"
+    "@wdio/cli": "^7.5.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.16",

@@ -1,5 +1,6 @@
 import MainPage from '../pageobjects/portal/main.portal.page';
 import CoursesPage from '../pageobjects/portal/courses.portal.page';
+import CardsPage from '../pageobjects/portal/cards.portal.page';
 
 describe ('Navigation', () => {
     before(() => {
@@ -15,10 +16,10 @@ describe ('Navigation', () => {
         CoursesPage.isOpen();
     });
 
-    // it.only('cards page is open', () => {
-    //     MainPage.goToCards();
-    //     CardsPage.isCardsOpen();
-    // });
+    it.only('cards page is open', () => {
+        MainPage.goToCards();
+        CardsPage.isCardsOpen();
+    });
 
 
 })

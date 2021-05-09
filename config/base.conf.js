@@ -1,9 +1,11 @@
 module.exports = {
     specs: [
         './test/specs/**/*.js'
+         // './test/specs/navigation.spec.js'
     ],
     exclude: [
-        './test/specs/navigation.spec.js'
+        './test/specs/navigation.spec.js',
+
     ],
     logLevel: 'info',
     bail: 1,
