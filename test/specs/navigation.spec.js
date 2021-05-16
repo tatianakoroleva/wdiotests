@@ -7,18 +7,18 @@ describe ('Navigation', () => {
         browser.login(process.env.LOGIN, process.env.PASSWORD);
     });
 
-    beforeEach(() => {
-        MainPage.open();
+    // beforeEach(() => {
+    //     MainPage.open();
+    // });
+
+    it('courses page open', async () => {
+        await MainPage.goToCourses();
+        await CoursesPage.isOpen();
     });
 
-    it('courses page open', () => {
-        MainPage.goToCourses();
-        CoursesPage.isOpen();
-    });
-
-    it.only('cards page is open', () => {
-        MainPage.goToCards();
-        CardsPage.isCardsOpen();
+    it('cards page is open', async () => {
+        await MainPage.goToCards();
+        await CardsPage.isCardsOpen();
     });
 
 

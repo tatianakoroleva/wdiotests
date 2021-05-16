@@ -3,14 +3,14 @@ import PortalPage from "./portal.page";
 class CardsPage extends PortalPage {
     get sectionHeader(){ return $('//h1'); }
 
-    open(){
+    async open(){
         return super.open('/flash');
     }
 
-    isCardsOpen(){
-        expect(browser).toHaveUrlContaining('/flash');
+    async isCardsOpen(){
+        await expect(browser).toHaveUrlContaining('/flash');
         const text = this.sectionHeader.getText();
-        expect(text).toEqual('Flash  in beta mode so far');
+        return expect(text).toEqual('Flash  in beta mode so far');
     }
 }
 
