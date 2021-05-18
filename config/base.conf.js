@@ -1,6 +1,6 @@
 module.exports = {
     specs: [
-        './test/specs/**/*.js',
+        //'./test/specs/**/*.js',
         './test/specs/navigation.spec.js'
     ],
     exclude: [

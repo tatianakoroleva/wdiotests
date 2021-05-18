@@ -9,7 +9,7 @@ class CardsPage extends PortalPage {
 
     async isCardsOpen(){
         await expect(browser).toHaveUrlContaining('/flash');
-        const text = this.sectionHeader.getText();
+        const text = await (await this.sectionHeader).getText();
         return expect(text).toEqual('Flash  in beta mode so far');
     }
 }

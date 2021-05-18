@@ -7,11 +7,11 @@ export default class PortalPage extends Page {
     get linkChallenges() { return $('[data-qa=\'topmenu-Challenges\']'); }
 
      async goToCourses(){
-        this.linkCourses.click();
+         (await this.linkCourses).click();
     }
 
     async goToCards(){
-        await this.linkCards.click();
+        (await this.linkCards).click();
     }
 
     async goToDiary(){

@@ -9,7 +9,7 @@ class CoursesPage extends PortalPage{
 
     async isOpen(){
         await expect(browser).toHaveUrlContaining('/course');
-        const text = this.sectionHeader.getText();
+        const text = await (await this.sectionHeader).getText();
         await expect(text).toEqual('Interactive Courses');
     }
 }
