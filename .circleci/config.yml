@@ -18,7 +18,7 @@ command: |
   curl $ARTIFACT_LINK -H "Circle-Token $CIRCLE_TOKEN" | grep -Eoq '(http|https)://[a-zA-Z0-9./?=_%:-]*' && wget $(curl $ARTIFACT_LINK -H "Circle-Token $CIRCLE_TOKEN" | grep -Eo '(http|https)://[a-zA-Z0-9./?=_%:-]*') -O allure-previous.zip
   test -f allure-previous.zip && unzip allure-previous.zip -d allure-previous || echo "Archive not found"
   ls -la
-- run:
+  - run:
 name: Run tests
 command: |
   npm run test:chrome:headless
@@ -26,14 +26,14 @@ command: |
   test -d allure-previous && cp -r allure-previous/allure-report/history allure-results || echo "Previous report directory not found"
   npm run report:generate
   zip -r allure-report.zip allure-report
-- run:
+  - run:
 when: on_fail
 name: Generate fail results
 command: |
   test -d allure-previous && cp -r allure-previous/allure-report/history allure-results || echo "Previous report directory not found"
   npm run report:generate
   zip -r allure-report.zip allure-report
-- store_artifacts:
+  - store_artifacts:
 path: allure-report.zip
 workflows:
   commit:
@@ -53,4 +53,8 @@ filters:
       - main
 jobs:
   - build-and-test
+
+
+
+
 
